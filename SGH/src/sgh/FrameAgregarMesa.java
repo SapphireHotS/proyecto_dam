@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,13 +37,17 @@ public class FrameAgregarMesa extends javax.swing.JFrame {
 
     private void hacerCosas() {
         this.setResizable(false);
-        setTitle("Información mesas");
+        setTitle("Insertar mesa");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                FrameEditMesas frame = new FrameEditMesas();
+                frame.setVisible(true);
                 dispose();
             }
         });
@@ -152,6 +157,9 @@ public class FrameAgregarMesa extends javax.swing.JFrame {
                 Logger.getLogger(FrameAgregarMesa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        FrameEditMesas frame = new FrameEditMesas();
+        frame.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_jButton1ActionPerformed
     private void conexionBD() {

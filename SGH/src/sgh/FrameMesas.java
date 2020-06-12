@@ -188,6 +188,8 @@ public class FrameMesas extends javax.swing.JFrame {
         
         
         setTitle("Información mesas");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

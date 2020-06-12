@@ -26,7 +26,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -990,7 +989,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             JasperViewer view = new JasperViewer(jprint, false);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             view.setVisible(true);
-        } catch (JRException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(FramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnFacturaActionPerformed
@@ -1265,6 +1264,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         this.setSize(930, 580);
         this.setResizable(false);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
+        
         try{
             String sql = "update bloqueada set nombre=\"\" where idbloqueada=1";
             st.executeUpdate(sql);

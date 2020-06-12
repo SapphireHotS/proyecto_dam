@@ -102,6 +102,8 @@ public class FrameEditMesas extends javax.swing.JFrame {
         
         
         setTitle("Información mesas");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -151,6 +153,7 @@ public class FrameEditMesas extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelBotones = new javax.swing.JPanel();
 
@@ -174,6 +177,13 @@ public class FrameEditMesas extends javax.swing.JFrame {
             }
         });
 
+        btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/btn_borrar_mesa.jpg"))); // NOI18N
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -182,17 +192,20 @@ public class FrameEditMesas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(15, 15, 15)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addGap(17, 17, 17))
         );
 
         panelBotones.setBackground(new java.awt.Color(153, 153, 255));
@@ -213,10 +226,7 @@ public class FrameEditMesas extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1)
-                .addGap(0, 0, 0))
+            .addComponent(jScrollPane1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,7 +255,14 @@ public class FrameEditMesas extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         FrameAgregarMesa frame = new FrameAgregarMesa();
         frame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        FrameBorrarMesa frame = new FrameBorrarMesa();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     
     
@@ -259,6 +276,7 @@ public class FrameEditMesas extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;

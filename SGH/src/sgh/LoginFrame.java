@@ -52,7 +52,8 @@ public class LoginFrame extends JFrame {
         panel1.setBackground("/resources/fondoDegradado1.png");//para poder poner un background con una imagen
         panel1.setLayout(null);
         this.getContentPane().add(panel1);
-
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         JLabel imagenSGH = new JLabel();
         ImageIcon iconoPrueba = new javax.swing.ImageIcon(getClass().getResource("/resources/logoSGH.png"));
         Image imagenPrueba = iconoPrueba.getImage();

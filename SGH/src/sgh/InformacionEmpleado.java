@@ -143,7 +143,8 @@ public class InformacionEmpleado extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         jbutton.setBounds(150, 270, 70, 40);
-
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         try {
             String sql = "select * from usuarios where nombre=\"" + nombre + "\";";
             ResultSet rss = st.executeQuery(sql);

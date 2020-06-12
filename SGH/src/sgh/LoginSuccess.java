@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +40,8 @@ public class LoginSuccess extends JFrame {
         panel1.setBackground("/resources/fondoDegradado1.png");//para poder poner un background con una imagen
         panel1.setLayout(null);
         this.getContentPane().add(panel1);
-        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/logo_sgh.png"));
+        this.setIconImage(icon.getImage());
         
         
         JLabel imagenSGH = new JLabel();
@@ -83,8 +85,14 @@ public class LoginSuccess extends JFrame {
         panel1.add(botonEditMesas);
         botonEditMesas.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                FrameEditMesas fp = new FrameEditMesas();
-                fp.setVisible(true);
+                if(esAdmin){
+                    FrameEditMesas fp = new FrameEditMesas();
+                    fp.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Necesitas ser administrador para acceder aquí.");
+                }
+                
+                
             }
         });
         
@@ -93,9 +101,38 @@ public class LoginSuccess extends JFrame {
         crearBoton(botonEditProd,500,350,"/resources/editarProductos.jpg");
         panel1.add(botonEditProd);
         
+        botonEditProd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(esAdmin){
+                    FrameInsertarProductos fp = new FrameInsertarProductos();
+                fp.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Necesitas ser administrador para acceder aquí.");
+                }
+                
+                
+            }
+        });
+        
+        
+        
+        
         JButton botonGestEmp = new JButton();
         crearBoton(botonGestEmp,650,350,"/resources/gestionarEmpleados.jpg");
         panel1.add(botonGestEmp);
+        botonGestEmp.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(esAdmin){
+                    EmpleadosFrame empFrame = new EmpleadosFrame();
+                    empFrame.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Necesitas ser administrador para acceder aquí.");
+                }
+                
+                
+                
+            }
+        });
         
     }
     

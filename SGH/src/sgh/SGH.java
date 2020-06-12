@@ -21,7 +21,7 @@ public class SGH {
             e.printStackTrace();
         }
         
-        //FramePrincipal frame1 = new FramePrincipal();
+        //LoginSuccess frame1 = new LoginSuccess("Valentin","pepe@pepe.es",true);
         //frame1.setVisible(true);
     }
     
