@@ -1,0 +1,20 @@
+Carpeta SGH:
+    -Es el proyecto hecho en NetBeans.
+Carpeta Android:
+    -Es el proyecto hecho en Android Studio.
+Carpeta php:
+    -Contiene las funciones php que irían en el servidor Apache de XAMPP.
+    
+
+
+Por si queréis probar el proyecto, tenéis que tener estas configuraciones:
+    -XAMPP instalado, puerto 8083 para el módulo Apache y puerto 3306 para MySQL
+    -Tenéis que usar la ip 192.168.1.39 en la red local. Para esto, hay que ir a la configuración
+     del router(192.168.1.1), entrar con la contraseña del router y buscar la opción de asignar manualmente. 
+     Ahí escribimos la MAC de nuestra tarjeta de red y la IP que queremos. Una vez hecho esto, reiniciamos el router.
+    -Crear la base de datos llamada sgh_bd, con las tablas que están en el fichero tablas_MySQL.txt
+    -Una vez hecho esto, para desbloquear la aplicación tenemos que usar la función de php 
+     desbloquear.php y pasarle por parámetro el nombre del empleado. Ejemplo:
+        http://localhost:8083/sgh/desbloquear.php?nombre=Valentin
+    -Como la aplicación necesita de un login, el primer empleado se debería crear a mano entrando en
+     localhost:8083 y arriba a la derecha en phpmyadmin crearlo.

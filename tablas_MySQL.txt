@@ -1,0 +1,72 @@
+//Tabla usuarios:
+CREATE TABLE `usuarios` (
+ `nombre` varchar(20) NOT NULL,
+ `apellidos` varchar(25) NOT NULL,
+ `telefono` varchar(10) NOT NULL,
+ `trabaja_desde` date NOT NULL,
+ `imagen` longblob NOT NULL,
+ `correo` varchar(35) NOT NULL,
+ `password` varchar(32) NOT NULL,
+ `administrador` tinyint(1) NOT NULL,
+ PRIMARY KEY (`correo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+//Tabla grupos:
+CREATE TABLE `grupos` (
+ `id` int(2) NOT NULL AUTO_INCREMENT,
+ `nombre` varchar(15) NOT NULL,
+ `foto` blob NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4
+
+
+
+//Tabla productos:
+CREATE TABLE `productos` (
+ `id_prod` int(4) NOT NULL AUTO_INCREMENT,
+ `nombreprod` varchar(30) NOT NULL,
+ `nombrecorto` varchar(10) NOT NULL,
+ `fotoprod` blob NOT NULL,
+ `id_grupo` int(2) NOT NULL,
+ `precio` double NOT NULL,
+ PRIMARY KEY (`id_prod`),
+ KEY `id_grupo` (`id_grupo`) USING BTREE,
+ CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_grupo`) REFERENCES `grupos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4
+
+
+
+
+//Tabla grupos:
+CREATE TABLE `mesas` (
+ `nummesa` int(3) NOT NULL,
+ `ocupada` tinyint(1) NOT NULL,
+ PRIMARY KEY (`nummesa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+
+//Tabla pedidos:
+CREATE TABLE `pedidos` (
+ `idpedido` int(11) NOT NULL AUTO_INCREMENT,
+ `idmesa` int(11) NOT NULL,
+ `idproducto` int(11) NOT NULL,
+ `nombreprod` varchar(30) NOT NULL,
+ `cantidad` int(11) NOT NULL,
+ `preciou` double NOT NULL,
+ `preciot` double NOT NULL,
+ PRIMARY KEY (`idpedido`),
+ KEY `mesa` (`idmesa`),
+ KEY `idproducto` (`idproducto`),
+ CONSTRAINT `mesa` FOREIGN KEY (`idmesa`) REFERENCES `mesas` (`nummesa`),
+ CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`id_prod`)
+) ENGINE=InnoDB AUTO_INCREMENT=300 DEFAULT CHARSET=utf8mb4
+
+
+
+//Tabla bloqueada:
+
+CREATE TABLE `bloqueada` (
+ `idbloqueada` int(1) NOT NULL,
+ `nombre` varchar(30) NOT NULL,
+ PRIMARY KEY (`idbloqueada`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4

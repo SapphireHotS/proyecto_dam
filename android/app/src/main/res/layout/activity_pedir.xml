@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:background="@drawable/fondo2"
+    tools:context=".ActivityPrincipal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinnerGrupos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </Spinner>
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/grid"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_weight="1"
+            ></GridView>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnVolverPedir"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:text="Volver"
+        android:textColor="@color/magenta"
+        android:textSize="25sp"
+        android:background="@drawable/btn_volver"></Button>
+    <TextView
+        android:layout_width="1dp"
+        android:layout_height="5dp"/>
+
+</LinearLayout>
